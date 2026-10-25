@@ -40,8 +40,10 @@
      - **Página 2 — Auditoría de Descartes:** Monitoreo y clasificación de motivos de descarte (`tipo_no_elegible`, `sentimiento_no_positivo`, `fallo_generacion`).
      - Regla DAX: Todas las medidas aplican `MAX(fecha)` sobre el último día consolidado.
 
-5. **🔐 Credenciales y Secretos Centralizados:**
-   - Archivo consolidado [`SECRETS_PROYECTO36.md`](SECRETS_PROYECTO36.md) con la matriz de secretos y variables de entorno para **Streamlit Cloud** (`Settings > Secrets`) y **Netlify** (`Environment variables`).
+5. **🔐 Configuración y Plantillas de Despliegue:**
+   - Plantilla de variables de entorno para Netlify y Local: [`.env.example`](.env.example).
+   - Plantilla de secretos para Streamlit Cloud y Local: [`SECRETS_TEMPLATE.toml`](SECRETS_TEMPLATE.toml) y [`.streamlit/secrets.toml.example`](.streamlit/secrets.toml.example).
+   - Plantilla de datos oficial de Google Sheets: [`PLANTILLA_GOOGLE_SHEETS_CURADURIA.csv`](PLANTILLA_GOOGLE_SHEETS_CURADURIA.csv).
 
 ---
 
@@ -78,11 +80,11 @@ communitylab/
 
 - 🌐 **[Despliegue Web Oficial en Vivo (Netlify)](https://proyecto-equipo-36.netlify.app/)**
 - 🛡️ **[Dashboard de Curaduría & Métricas en Vivo (Streamlit Cloud)](https://g10-latam-equipo-36.streamlit.app/)**
-- 🔐 **[Credenciales & Secretos Consolidados](SECRETS_PROYECTO36.md)**
 - 📖 **[Documentación Técnica Completa](communitylab/README.md)** (Arquitectura Mermaid, Contratos de Datos y Matriz de Cumplimiento)
 - 🤖 **[Workflows de n8n](communitylab/workflows/)**
 - 🖥️ **[Dashboard Streamlit Local v2.2 (app.py)](app.py)** / [`communitylab/dashboard/`](communitylab/dashboard/)
-- 🛡️ **[Manual del Dashboard & Guía de Faltantes](FALTANTES_CURADURIA.md)**
+- 📄 **[Plantilla Google Sheets Curaduría](PLANTILLA_GOOGLE_SHEETS_CURADURIA.csv)**
+- 🔐 **[Plantilla de Secretos Streamlit](SECRETS_TEMPLATE.toml)**
 - 📦 **[Repositorio Curaduría Streamlit (Oscar)](https://github.com/VelaztiquiOscar/G10-LATAM-EQUIPO-36.git)**
 
 ---
