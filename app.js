@@ -359,14 +359,15 @@ function handleApproveOCI() {
       bucket_name: "communitylab-activos-marketing",
       storage_tier: "Standard",
       region: "sa-saopaulo-1",
-      metodo_autenticacion: "Pre-Authenticated Request (PAR) + HTTP PUT",
-      par_base_url: "https://objectstorage.sa-saopaulo-1.oraclecloud.com/p/SWqrKsMINlrIcljYtY-AwmK5_E6aKqxmp-8JHrfR2XpiDOXnG5MqTzgqweFEaR1C/n/grslzqluxaia/b/communitylab-activos-marketing/o/",
+      persistencia_automatizada: "Orquestada por n8n (WF2-curaduria-oci)",
+      metodo_autenticacion_backend: "Pre-Authenticated Request (PAR) exclusivo de WF2",
       prefix_convencion: `activos/aprobados/${execId}/`,
       objetos_persistidos: [
         `activos/aprobados/${execId}/${execId}-li.json`,
         `activos/aprobados/${execId}/${execId}-faq.json`,
         `activos/aprobados/${execId}/${execId}-nl.json`
-      ]
+      ],
+      nota_arquitectura: "La URL PAR de OCI solo la usa el WF2 en n8n al aprobar y guardar en Oracle. No hace falta en Netlify ni en el frontend."
     },
     activos_validados: {
       linkedin: {
@@ -408,13 +409,13 @@ function handleApproveOCI() {
   // Update Status Pill
   const statusPill = document.getElementById('curaduria-status-badge');
   if (statusPill) {
-    statusPill.innerHTML = `☁️ Almacenado en OCI (${execId})`;
+    statusPill.innerHTML = `☁️ Aprobado (Pendiente WF2 → OCI: ${execId})`;
     statusPill.style.color = '#34d399';
     statusPill.style.borderColor = 'rgba(16, 185, 129, 0.4)';
     statusPill.style.background = 'rgba(16, 185, 129, 0.15)';
   }
 
-  showToast('🎉 ¡Contenido aprobado y persistido en OCI Object Storage Always Free vía PAR!');
+  showToast('🎉 ¡Contenido aprobado! WF2 en n8n procesará el guardado en OCI Object Storage vía PAR.');
 }
 
 // Reject Action

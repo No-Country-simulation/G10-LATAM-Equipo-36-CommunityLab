@@ -87,7 +87,7 @@
       </div>
 
       <div class="hero-pills-row">
-        <span class="tech-tag oci">☁️ OCI Object Storage Always Free (PAR)</span>
+        <span class="tech-tag oci">☁️ OCI Object Storage Always Free (WF2 vía PAR)</span>
         <span class="tech-tag groq">⚡ Groq LLM (openai/gpt-oss-120b, JSON estricto)</span>
         <span class="tech-tag n8n">🤖 Pipeline n8n Modular (WF1 + WF2 + WF3)</span>
         <span class="tech-tag">📊 Google Sheets Live Sync (gspread)</span>
@@ -344,7 +344,7 @@
           <div class="oci-panel-header">
             <div style="display:flex; align-items:center; gap:0.75rem;">
               <span style="font-size:1.1rem;">☁️</span>
-              <strong style="color:#fff;">Payload Oficial Persistido en OCI Object Storage</strong>
+              <strong style="color:#fff;">Payload Oficial para OCI (Persistido por WF2 en n8n)</strong>
               <span id="oci-path-text" class="oci-dest-badge"></span>
             </div>
             <button id="btn-copy-oci-json" class="btn-refresh" style="font-size:0.75rem;">
@@ -1049,7 +1049,7 @@
               <tr>
                 <td><strong>5. Persistencia en OCI Object Storage Always Free</strong></td>
                 <td><span class="badge-status-ok">✅ Cumplido</span></td>
-                <td>Convención en OCI Bucket: <code>activos/aprobados/{execution_id}/{asset_id}.json</code> mediante llamadas REST HTTP PUT autenticadas con <strong>Pre-Authenticated Request (PAR)</strong> al aprobar.</td>
+                <td>Convención en OCI Bucket: <code>activos/aprobados/{execution_id}/{asset_id}.json</code> mediante llamadas REST HTTP PUT autenticadas con <strong>Pre-Authenticated Request (PAR)</strong> al aprobar mediante WF2 en n8n (no requerido en Netlify ni frontend).</td>
               </tr>
               <tr>
                 <td><strong>6. Demostración de ≥ 3 ejemplos de transformación</strong></td>

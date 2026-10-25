@@ -19,6 +19,7 @@ secrets.toml
 *.secret
 SECRETS_*.toml
 SECRETS_*.env
+SECRETS_*.md
 DATOS_SENSIBLES_*.md
 
 

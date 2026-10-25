@@ -103,7 +103,7 @@ def get_gspread_client():
     if "gcp_service_account" not in st.secrets:
         raise KeyError(
             "Falta la sección [gcp_service_account] en .streamlit/secrets.toml "
-            "o en los Secrets de Streamlit Cloud. Revisa DATOS_SENSIBLES_SECRETS_PROYECTO36.md."
+            "o en los Secrets de Streamlit Cloud. Revisa SECRETS_PROYECTO36.md."
         )
 
     info = dict(st.secrets["gcp_service_account"])

@@ -29,8 +29,9 @@
    - Ningún activo se publica ni se sube a la nube sin el consentimiento explícito del curador humano.
 
 3. **☁️ Persistencia Cloud (Oracle Cloud Infrastructure - OCI):**
-   - Integración con **OCI Object Storage Always Free** mediante solicitudes HTTP PUT autenticadas por **Pre-Authenticated Request (PAR)**.
+   - Integración con **OCI Object Storage Always Free** mediante solicitudes HTTP PUT autenticadas por **Pre-Authenticated Request (PAR)** ejecutadas **exclusivamente por el backend automatizado (WF2 en n8n)** al aprobar activos.
    - Convención: `activos/aprobados/{execution_id}/{asset_id}.json` exclusivamente para contenidos con decisión humana aprobada.
+   - *Seguridad Zero-Trust:* La URL PAR de OCI solo la usa el WF2 en n8n; no hace falta ni se expone en Netlify ni en el frontend.
 
 4. **📊 Observabilidad, Métricas Diarias & Power BI:**
    - Flujo automatizado **WF3** que consolida diariamente en Google Sheets (`Metricas_diarias` y `Metricas_descartes_diarias`).
@@ -40,7 +41,7 @@
      - Regla DAX: Todas las medidas aplican `MAX(fecha)` sobre el último día consolidado.
 
 5. **🔐 Credenciales y Secretos Centralizados:**
-   - Archivo consolidado [`DATOS_SENSIBLES_SECRETS_PROYECTO36.md`](DATOS_SENSIBLES_SECRETS_PROYECTO36.md) con los bloques listos para copiar y pegar en **Streamlit Cloud** (`Settings > Secrets`) y en **Netlify** (`Environment variables`).
+   - Archivo consolidado [`SECRETS_PROYECTO36.md`](SECRETS_PROYECTO36.md) con la matriz de secretos y variables de entorno para **Streamlit Cloud** (`Settings > Secrets`) y **Netlify** (`Environment variables`).
 
 ---
 
@@ -77,7 +78,7 @@ communitylab/
 
 - 🌐 **[Despliegue Web Oficial en Vivo (Netlify)](https://proyecto-equipo-36.netlify.app/)**
 - 🛡️ **[Dashboard de Curaduría & Métricas en Vivo (Streamlit Cloud)](https://g10-latam-equipo-36.streamlit.app/)**
-- 🔐 **[Credenciales & Secretos Consolidados](DATOS_SENSIBLES_SECRETS_PROYECTO36.md)**
+- 🔐 **[Credenciales & Secretos Consolidados](SECRETS_PROYECTO36.md)**
 - 📖 **[Documentación Técnica Completa](communitylab/README.md)** (Arquitectura Mermaid, Contratos de Datos y Matriz de Cumplimiento)
 - 🤖 **[Workflows de n8n](communitylab/workflows/)**
 - 🖥️ **[Dashboard Streamlit Local v2.2 (app.py)](app.py)** / [`communitylab/dashboard/`](communitylab/dashboard/)
